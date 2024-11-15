@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Couche pour la bordure extérieure (rouge) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#B71C1C" /> <!-- Rouge sombre -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- Couche pour l'arrière-plan intérieur (vert) avec un décalage -->
+    <item android:left="3dp" android:right="3dp" android:top="3dp" android:bottom="3dp">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+            <!-- Définition du dégradé linéaire -->
+            <gradient
+                android:startColor="#B71C1C"
+                android:endColor="#388E3C"
+                android:angle="45" /> <!-- Angle du dégradé -->
+
+            <!-- Coins arrondis pour un aspect stylisé -->
+            <corners android:radius="12dp" />
+        </shape>
+
+    </item>
+</layer-list>

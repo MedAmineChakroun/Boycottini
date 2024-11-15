@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Boycottini</string>
+    <string name="product_image">Image du produit</string>
+    <string name="alternative_brand_image">Image du produit alternative</string>
+
+</resources>
