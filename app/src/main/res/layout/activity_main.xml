@@ -11,57 +11,49 @@
     android:paddingRight="20dp"
     tools:context=".MainActivity">
 
+    <!-- Top Layout (Fixed) -->
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SearchView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:iconifiedByDefault="false"
+            android:paddingLeft="-15dp"
+            android:queryHint="Search for brands, products..." />
+
+        <ImageView
+            android:id="@+id/account_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/user_sample" />
+    </LinearLayout>
+
     <!-- Scrollable Content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Search Bar Layout -->
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-
-                >
-
-                <!-- SearchView centered horizontally -->
-                <SearchView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:iconifiedByDefault="false"
-                    android:layout_marginLeft="-15dp"
-
-                    android:queryHint="Search for brands, products..."
-
-                    /> <!-- Ensure the hint shows when not focused -->
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-
-                    android:layout_marginRight="5dp"
-                    android:clickable="true"
-                    app:srcCompat="@android:drawable/ic_menu_share" />
-            </LinearLayout>
             <!-- Intro Text and Suggest Button -->
             <LinearLayout
-                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -69,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:text="Take real action by joining the boycott movement!"
                     android:textSize="20dp"
-                    android:fontFamily="sans-serif-medium"/>
+                    android:fontFamily="sans-serif-medium" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -77,8 +69,10 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="5dp"
+                        android:layout_width="23dp"
                         android:layout_height="150dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -114,8 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="Boycott List" />
-
+                android:text="Boycott List"
+                android:textSize="18dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -126,16 +120,14 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Fixed Footer with Buttons -->
+    <!-- Bottom Layout (Fixed) -->
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/navbar_button_background"
         android:orientation="horizontal"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/button4"

@@ -1,17 +1,19 @@
 
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.boycottini.BrandByCategorie
+import com.example.boycottini.Category
 import com.example.boycottini.R
 
-class CategorieAdapter(private var categories: List<String>) : RecyclerView.Adapter<CategorieAdapter.CategorieViewHolder>() {
+class CategorieAdapter(private val context: Context, private var categories: List<Category>) : RecyclerView.Adapter<CategorieAdapter.CategorieViewHolder>() {
 
     class CategorieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -24,14 +26,22 @@ class CategorieAdapter(private var categories: List<String>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: CategorieViewHolder, position: Int) {
-        val categoryName = categories[position]
-        holder.textView.text = categoryName
-        holder.imageView.setImageResource(R.drawable.brand_img_background)
+        val category = categories[position]
+        holder.textView.text = category.name
+
+        // Fetch and load the image using Glide
+        val imageUrl = "http://192.168.1.15:8087/imageCategory/get/${category.id}.png"
+        Glide.with(context)
+            .asBitmap()
+            .load(imageUrl)
+            .error(R.drawable.brand_img_background)
+
+            .into(holder.imageView)
+
 
         holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
             val intent = Intent(context, BrandByCategorie::class.java)
-            intent.putExtra("CATEGORY_NAME", categoryName)  // Pass category name
+            intent.putExtra("CATEGORY_NAME", category.name)  // Pass category name to the next activity
             context.startActivity(intent)
         }
     }
@@ -40,11 +50,8 @@ class CategorieAdapter(private var categories: List<String>) : RecyclerView.Adap
         return categories.size
     }
 
-
-    fun updateCategories(newCategories: List<String>) {
+    fun updateCategories(newCategories: List<Category>) {
         categories = newCategories
         notifyDataSetChanged()
-
-
     }
 }

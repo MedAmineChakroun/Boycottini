@@ -1,9 +1,12 @@
 package com.example.boycottini
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -27,7 +30,12 @@ class ProductDetailActivity : AppCompatActivity() {
         val articleUrl = "https://www.bfmtv.com/economie/entreprises/mc-donald-s-ressent-toujours-les-effets-du-boycott-lie-a-la-guerre-a-gaza_AD-202404300862.html"
         webView.loadUrl(articleUrl)
 
-
+        val seeProofbtn= findViewById<TextView>(R.id.proofbtn)
+        seeProofbtn.setOnClickListener{
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(articleUrl)
+            startActivity(intent)
+        }
 
         val imageList = listOf(
             R.drawable.ic_alternative_brand_1,
