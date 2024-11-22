@@ -44,7 +44,7 @@ class CategoriesActivity : AppCompatActivity() {
 
     private fun fetchCategories() {
         progressBar.visibility = View.VISIBLE
-        val url = "http://192.168.41.146:8087/api/boycott/categories"
+        val url = "http://192.168.1.15:8087/api/boycott/categories"
         val queue = Volley.newRequestQueue(this)
 
         val request = JsonArrayRequest(

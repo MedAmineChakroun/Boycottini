@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchUserDetails(userId: String) {
-        val url = "http://192.168.41.146:8087/api/user/users/$userId"
+        val url = "http://192.168.1.15:8087/api/user/users/$userId"
 
         val request = JsonObjectRequest(
             Request.Method.GET, url, null,
