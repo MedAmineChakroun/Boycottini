@@ -45,7 +45,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun performSignup(username: String, email: String, password: String) {
-        val url = "http://192.168.1.15:8087/api/user/users/signup"  // Ensure this URL is correct
+        val adresseIP = getString(R.string.adresseIP)
+        val url = "http://$adresseIP:8087/api/user/users/signup"  // Ensure this URL is correct
         val requestBody = JSONObject().apply {
             put("username", username)
             put("email", email)

@@ -42,7 +42,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun performLogin(username: String, password: String) {
-        val url = "http://192.168.1.15:8087/api/user/users/login"
+        val adresseIP = getString(R.string.adresseIP)
+        val url = "http://$adresseIP:8087/api/user/users/login"
         val requestBody = JSONObject().apply {
             put("username", username)
             put("password", password)

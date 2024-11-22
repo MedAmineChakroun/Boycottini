@@ -2,6 +2,7 @@
 
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,19 +30,17 @@ class CategorieAdapter(private val context: Context, private var categories: Lis
         val category = categories[position]
         holder.textView.text = category.name
 
-        // Fetch and load the image using Glide
-        val imageUrl = "http://192.168.1.15:8087/imageCategory/get/${category.id}.png"
-        Glide.with(context)
-            .asBitmap()
-            .load(imageUrl)
-            .error(R.drawable.brand_img_background)
 
+        Glide.with(context)
+            .load(category.imgUrl)
+            .error(R.drawable.brand_img_background)
             .into(holder.imageView)
 
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, BrandByCategorie::class.java)
-            intent.putExtra("CATEGORY_NAME", category.name)  // Pass category name to the next activity
+            intent.putExtra("CATEGORY_ID", category.id)
+            intent.putExtra("CATEGORY_NAME", category.name)// Pass category name to the next activity
             context.startActivity(intent)
         }
     }

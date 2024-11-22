@@ -48,6 +48,18 @@
         <activity android:name=".SignUpActivity">
 
         </activity>
+        <activity android:name=".ManageProducts">
+
+        </activity>
+        <activity android:name=".ManageCategories">
+
+        </activity>
+        <activity android:name=".AddCategory">
+
+        </activity>
+        <activity android:name=".EditCategory">
+
+        </activity>
 
     </application>
 

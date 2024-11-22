@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManageCategories">
+
+
+    <!-- Header Bar -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Back Icon"
+            android:clickable="true"
+            android:src="@drawable/ic_back"
+            android:padding="8dp"/>
+
+        <!-- Page Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Edit Category"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <!-- Add Category Icon -->
+        <ImageView
+            android:id="@+id/add_category_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_category"
+            android:clickable="true"
+            android:contentDescription="Add Category"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </LinearLayout>
+
+    <!-- Main Content Section -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+        <!-- Category Image -->
+
+        <!-- Category Name Input -->
+        <ImageView
+            android:id="@id/category_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_launcher_background"
+            />
+
+        <!-- Category Description Input -->
+        <EditText
+            android:id="@+id/category_name_input"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#DCDCDC"
+            android:drawableLeft="@drawable/ic_edit"
+            android:hint="Category Name"
+            android:padding="12dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/category_description_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#DCDCDC"
+            android:drawableLeft="@drawable/ic_edit"
+            android:hint="Category Description"
+            android:padding="12dp"
+            android:textColor="#000000" />
+
+        <!-- Add Category Button -->
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/blue"
+            android:text="Edit"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

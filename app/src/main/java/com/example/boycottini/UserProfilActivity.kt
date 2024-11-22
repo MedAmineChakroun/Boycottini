@@ -31,14 +31,21 @@ class UserProfilActivity:AppCompatActivity() {
         }
         val logoutbtn = findViewById<Button>(R.id.logoutbtn)
         logoutbtn.setOnClickListener {
-            val editor = sharedPreferences.edit()
-            editor.clear()  // Clear all the stored data
-            editor.apply()
-            val intent = Intent(this, MainInterfaceActivity::class.java)
-            startActivity(intent)
+            handleLogout()
         }
 
 
 
+    }
+    private fun handleLogout() {
+        val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            clear()
+            apply()
+        }
+
+        val intent = Intent(this, MainInterfaceActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

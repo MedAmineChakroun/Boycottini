@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
+    android:background="#fff0f3"
 
 
     >
@@ -39,7 +40,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         tools:listitem="@layout/categorie_boycott"
-        />
+
+        android:gravity="center"
+        app:layout_constraintVertical_bias="0.5" />
+
+
 
     <LinearLayout
         android:id="@+id/linearLayout3"

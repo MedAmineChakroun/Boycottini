@@ -1,3 +1,6 @@
+package com.example.boycottini
+
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -5,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.boycottini.ProductDetailActivity
+import com.bumptech.glide.Glide
 import com.example.boycottini.R
 
-class BoycottAdapter(private val brands: List<String>) : RecyclerView.Adapter<BoycottAdapter.BoycottViewHolder>() {
+class BoycottAdapter(private val context: Context, private var products: List<BoycottItem>) :
+    RecyclerView.Adapter<BoycottAdapter.BoycottViewHolder>() {
 
     class BoycottViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -16,21 +20,30 @@ class BoycottAdapter(private val brands: List<String>) : RecyclerView.Adapter<Bo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoycottViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_boycott, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_boycott, parent, false)
         return BoycottViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BoycottViewHolder, position: Int) {
-        holder.textView.text = brands[position]
-        holder.imageView.setImageResource(R.drawable.brand_img_background) // Replace with a real image
+        val product = products[position]
+        holder.textView.text = product.name
+
+        Glide.with(context)
+            .load(product.imageUrl)
+            .error(R.drawable.brand_img_background)
+            .into(holder.imageView)
 
         holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
             val intent = Intent(context, ProductDetailActivity::class.java)
-            intent.putExtra("BRAND_NAME", brands[position])
+            intent.putExtra("PRODUCT_ID", product.id)
             context.startActivity(intent)
         }
     }
 
-    override fun getItemCount() = brands.size
+    override fun getItemCount(): Int = products.size
+
+    fun updateProducts(newProducts: List<BoycottItem>) {
+        products = newProducts
+        notifyDataSetChanged()
+    }
 }

@@ -55,9 +55,9 @@ class ProductDetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = AlternativeBrandsAdapter(imageList)
 
-        val brandName = intent.getStringExtra("BRAND_NAME")
+
         val textView: TextView = findViewById(R.id.productNameTextView)
-        textView.text = brandName
+        textView.text ="brandName"
 
         //baaaaaaaaaaaaaaaaaaack
         val callback = object : OnBackPressedCallback(true) {

@@ -2,5 +2,7 @@
     <string name="app_name">Boycottini</string>
     <string name="product_image">Image du produit</string>
     <string name="alternative_brand_image">Image du produit alternative</string>
-
+    <string name="adresseIP">192.168.1.15</string>
+    <string name="open">open\n</string>
+    <string name="close">close</string>
 </resources>

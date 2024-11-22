@@ -44,7 +44,8 @@ class CategoriesActivity : AppCompatActivity() {
 
     private fun fetchCategories() {
         progressBar.visibility = View.VISIBLE
-        val url = "http://192.168.1.15:8087/api/boycott/categories"
+        val adresseIP = getString(R.string.adresseIP)
+        val url = "http://$adresseIP:8087/api/boycott/categories"
         val queue = Volley.newRequestQueue(this)
 
         val request = JsonArrayRequest(
@@ -56,22 +57,26 @@ class CategoriesActivity : AppCompatActivity() {
                     val categories = ArrayList<Category>()
                     for (i in 0 until response.length()) {
                         val category = response.getJSONObject(i)
-                        val id = category.getString("id")  // Assuming `id` is the unique identifier
-                        val name = category.getString("name")
-                        categories.add(Category(id, name))
+                        val id = category.optLong("id")  // Default value if key is missing
+                        val name = category.optString("name", "Unknown")
+                        val description = category.optString("description", "No description")
+                        val imgUrl = category.optString("imgUrl", "")
+
+
+                        categories.add(Category(id, name , description, imgUrl ))
                     }
 
                     adapter.updateCategories(categories)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    Toast.makeText(this, "Error parsing categories", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error parsing com.example.boycottini.getCategories", Toast.LENGTH_SHORT).show()
                 }
             },
             { error ->
                 progressBar.visibility = View.GONE
                 error.printStackTrace()
                 Log.e("Volley", "Error: ${error.localizedMessage}")
-                Toast.makeText(this, "Failed to fetch categories", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Failed to fetch com.example.boycottini.getCategories", Toast.LENGTH_SHORT).show()
             }
         )
 
