@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
         val navigationView = findViewById<NavigationView>(R.id.navigation_view)
         val headerView = navigationView.getHeaderView(0) // Get the header layout (index 0)
 
-         //Access TextViews from the header view
+        //Access TextViews from the header view
         val usernameTextView = headerView.findViewById<TextView>(R.id.username)
         val emailTextView = headerView.findViewById<TextView>(R.id.useremail)
         val userIconImageView = headerView.findViewById<ImageView>(R.id.user_image)

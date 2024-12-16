@@ -53,7 +53,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     //lottie
     implementation ("com.airbnb.android:lottie:6.1.0")
-    implementation ("net.openid:appauth:0.7.1")
+
 
 
 }
