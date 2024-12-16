@@ -35,8 +35,9 @@ android {
     }
 }
 
+
 dependencies {
-    implementation(libs.volley)  // Using the version from the version catalog
+    implementation(libs.volley) // Version managed by version catalog
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -45,7 +46,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.github.bumptech.glide:glide:4.11.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+
+    // Glide dependencies
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
+    //lottie
+    implementation ("com.airbnb.android:lottie:6.1.0")
+    implementation ("net.openid:appauth:0.7.1")
+
 
 }

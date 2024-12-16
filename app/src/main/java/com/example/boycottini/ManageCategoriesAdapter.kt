@@ -24,7 +24,7 @@ class ManageCategoriesAdapter(
     private var categories: List<Category>
 ) : RecyclerView.Adapter<ManageCategoriesAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val categoryImage: ImageView = view.findViewById(R.id.category_image)
         val categoryName: TextView = view.findViewById(R.id.category_name)
         val categoryDescription: TextView = view.findViewById(R.id.category_description)
@@ -95,7 +95,7 @@ class ManageCategoriesAdapter(
                 Toast.makeText(context, "Category deleted successfully", Toast.LENGTH_SHORT).show()
             },
             { error ->
-                error.printStackTrace()
+
                 Toast.makeText(context, "Error deleting category", Toast.LENGTH_SHORT).show()
             }
         ) {

@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                 if (error.networkResponse != null && error.networkResponse.statusCode == 401) {
                     Toast.makeText(this, "Login failed: Invalid username or password", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Connection Probleme", Toast.LENGTH_SHORT).show()
                 }
             })
 

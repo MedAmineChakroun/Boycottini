@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/blue"
-            android:text="Edit"
+            android:text="Save Changes"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

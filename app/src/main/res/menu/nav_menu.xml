@@ -13,6 +13,16 @@
         android:icon="@android:drawable/divider_horizontal_bright" />
 
     <!-- Main Menu Items -->
+
+
+    <item
+        android:id="@+id/nav_manage_categories"
+        android:icon="@drawable/ic_category"
+        android:title="Manage Categories"
+        android:iconTint="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"/>
     <item
         android:id="@+id/nav_manage_products"
         android:icon="@drawable/ic_product"
@@ -21,11 +31,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"/>
-
     <item
-        android:id="@+id/nav_manage_categories"
-        android:icon="@drawable/ic_category"
-        android:title="Manage Categories"
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/ic_notification"
+        android:title="Notifications"
         android:iconTint="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

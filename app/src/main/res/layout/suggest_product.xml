@@ -8,18 +8,48 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-6dp">
 
-    <TextView
-        android:id="@+id/toolbarTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Suggest products"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:contentDescription="Back Icon"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <!-- Page Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Suggest Product"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Add Product Icon -->
+        <ImageView
+            android:id="@+id/add_product_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Add Product"
+            android:padding="8dp"
+            android:src="@drawable/ic_product" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/descriptionText"
@@ -32,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -109,17 +139,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="85dp"
-        android:layout_height="47dp"
-        android:layout_gravity="bottom|start"
-        android:backgroundTint="@color/grey"
-        android:text="Back"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
