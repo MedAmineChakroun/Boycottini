@@ -1,0 +1,56 @@
+<!-- res/layout/dialog_product_details.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+ >
+
+    <!-- Title -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+    <ImageView
+        android:src="@drawable/user_sample"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+    <!-- Brand Name -->
+    <TextView
+        android:id="@+id/dialog_brand_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Conditional Field (Reason/Alternative) -->
+    <TextView
+        android:id="@+id/dialog_reason_or_alternative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Proof URL -->
+    <TextView
+        android:id="@+id/dialog_proof_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#04473E"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:paddingTop="10dp" />
+</LinearLayout>

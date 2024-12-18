@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -24,6 +25,10 @@ class SignUpActivity : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.loginButton)
         val signupButton = findViewById<Button>(R.id.signupButton)
 
+        val lottieAnimationView = findViewById<LottieAnimationView>(R.id.lottieAnimationView)
+
+        // Play animation
+        lottieAnimationView.playAnimation()
         // Navigate to LoginActivity when login button is clicked
         loginButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

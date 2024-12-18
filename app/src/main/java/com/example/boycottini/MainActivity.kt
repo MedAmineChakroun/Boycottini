@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
@@ -58,14 +59,16 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_suggestions -> {
-                    //val intent  = Intent(this,ManageProducts::class.java)
-                    //startActivity(intent)
+                    val intent  = Intent(this,Suggestions::class.java)
+                    startActivity(intent)
                 }
                 R.id.nav_share -> handleShare()
                 R.id.nav_logout -> handleLogout()
             }
             true
         }
+
+
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
@@ -186,16 +189,32 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun handleLogout() {
-        val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            clear()
-            apply()
-        }
+        // Create the AlertDialog
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Are you sure you want to log out?")
+            .setCancelable(false) // Disable tapping outside to cancel the dialog
+            .setPositiveButton("Yes") { dialog, id ->
+                // Perform logout action
+                val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
+                with(sharedPreferences.edit()) {
+                    clear()
+                    apply()
+                }
 
-        val intent = Intent(this, MainInterfaceActivity::class.java)
-        startActivity(intent)
-        finish()
+                val intent = Intent(this, MainInterfaceActivity::class.java)
+                startActivity(intent)
+                finish() // Close the current activity
+            }
+            .setNegativeButton("No") { dialog, id ->
+                // Dismiss the dialog without logging out
+                dialog.dismiss()
+            }
+
+        // Show the AlertDialog
+        val alert = builder.create()
+        alert.show()
     }
+
     private fun handleItemsInSideBar() {
         val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
         val user_role = sharedPreferences.getString("role", "")

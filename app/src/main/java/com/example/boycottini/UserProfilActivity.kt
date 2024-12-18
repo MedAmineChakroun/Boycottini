@@ -120,15 +120,31 @@ class UserProfilActivity:AppCompatActivity() {
     }
 
     private fun handleLogout() {
-        val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            clear()
-            apply()
-        }
+        // Create the AlertDialog
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Are you sure you want to log out?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, id ->
+                // Perform logout action
+                val sharedPreferences = getSharedPreferences("userSession", MODE_PRIVATE)
+                with(sharedPreferences.edit()) {
+                    clear()
+                    apply()
+                }
 
-        val intent = Intent(this, MainInterfaceActivity::class.java)
-        startActivity(intent)
-        finish()
+                val intent = Intent(this, MainInterfaceActivity::class.java)
+                startActivity(intent)
+                finish() // Close the current activity
+            }
+            .setNegativeButton("No") { dialog, id ->
+                // Dismiss the dialog without logging out
+                dialog.dismiss()
+            }
+
+        // Show the AlertDialog
+        val alert = builder.create()
+        alert.show()
     }
 
- }
+
+}
